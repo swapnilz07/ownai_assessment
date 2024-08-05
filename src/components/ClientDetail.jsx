@@ -17,7 +17,7 @@ const ErrorComponent = ({ errorText }) => {
   );
 };
 
-const ClientDetail = ({ isViewOnly }) => {
+const ClientDetail = () => {
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
     useFormikContext();
 
@@ -38,7 +38,6 @@ const ClientDetail = ({ isViewOnly }) => {
               value={values.clientName}
               onChange={handleChange}
               placeholder="Enter a client name"
-              disabled={isViewOnly}
             >
               {CLIENT_NAMES.map((val) => (
                 <>

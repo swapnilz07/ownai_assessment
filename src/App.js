@@ -1,6 +1,5 @@
 import { IoIosArrowBack } from "react-icons/io";
 import PurchaseOrder from "./components/PurchaseOrder";
-import MainForm from "./components/PO";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         </div>
       </div>
       <PurchaseOrder />
-      {/* <MainForm /> */}
     </>
   );
 }
