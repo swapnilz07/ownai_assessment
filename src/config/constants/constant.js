@@ -51,6 +51,19 @@ export const JOB_TITLES = [
     clientId: "2",
   },
   { id: "REQ005", title: "Web Development", reqID: "REQ005", clientId: "2" },
+  {
+    id: "REQ006",
+    title: "Application Development",
+    reqID: "REQ006",
+    clientId: "3",
+  },
+  {
+    id: "REQ007",
+    title: "Softwate Development",
+    reqID: "REQ007",
+    clientId: "3",
+  },
+  { id: "REQ008", title: "Web Development", reqID: "REQ008", clientId: "3" },
 ];
 
 // Example Talents (this should be dynamically loaded based on the selected job title)
@@ -64,8 +77,7 @@ export const TALENTS_USERS = [
   { id: "7", name: "Mahesh", reqID: "REQ003" },
   { id: "8", name: "Siddhesh", reqID: "REQ003" },
   { id: "9", name: "Chetan", reqID: "REQ003" },
-  { id: "9", name: "Prajwal", reqID: "REQ004" },
-  { id: "9", name: "Sapna", reqID: "REQ004" },
-  { id: "9", name: "Krishna", reqID: "REQ005" },
-  { id: "9", name: "Sangeeta", reqID: "REQ005" },
+  { id: "10", name: "Prajwal", reqID: "REQ004" },
+  { id: "11", name: "Sapna", reqID: "REQ004" },
+  { id: "12", name: "Sangeeta", reqID: "REQ005" },
 ];
