@@ -67,7 +67,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
     }
   };
 
-  console.log("uniueId", values);
+  //   console.log("uniueId", values);
 
   // Function to handle adding new talent
   const handleAddTalent = (id, field, value) => {
@@ -194,8 +194,9 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                   />
                 </Col>
               </Row>
+
               <Row>
-                <Col className="">
+                <Col lg={3} md={3} sm={12} className="">
                   <Form.Group controlId={`formContractDuration-${talent.id}`}>
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Contract Duration
@@ -215,7 +216,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                     />
                   </Form.Group>
                 </Col>
-                <Col>
+                <Col lg={2} md={3} sm={12}>
                   <Form.Group controlId={`formBillRate-${talent.id}`}>
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Bill Rate
@@ -231,7 +232,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                     />
                   </Form.Group>
                 </Col>
-                <Col>
+                <Col lg={1} md={3} sm={12}>
                   <Form.Group controlId={`formCurrency-${talent.id}`}>
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Currency
@@ -252,7 +253,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                     </Form.Select>
                   </Form.Group>
                 </Col>
-                <Col>
+                <Col lg={2} md={3} sm={12}>
                   <Form.Group controlId={`formStandardTimeBR-${talent.id}`}>
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Standard Time BR
@@ -272,7 +273,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                     />
                   </Form.Group>
                 </Col>
-                <Col>
+                <Col lg={1} md={3} sm={12}>
                   <Form.Group controlId={`formCurrency-${talent.id}`}>
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Currency
@@ -297,7 +298,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                     </Form.Select>
                   </Form.Group>
                 </Col>
-                <Col>
+                <Col lg={2} md={3} sm={12}>
                   <Form.Group controlId={`formOverTimeBR-${talent.id}`}>
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Over Time BR
@@ -313,7 +314,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                     />
                   </Form.Group>
                 </Col>
-                <Col>
+                <Col lg={1} md={3} sm={12}>
                   <Form.Group controlId={`formCurrency-${talent.id}`}>
                     <Form.Label style={{ fontWeight: "bold" }}>
                       Currency

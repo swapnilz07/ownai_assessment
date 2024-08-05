@@ -102,21 +102,18 @@ const PurchaseOrder = () => {
                 talentDetail={talentDetail}
               />
             ))}
-          <div className="d-flex justify-content-center justify-content-md-end gap-2 mt-4 px-3">
-            <button
-              className=" rounded-pill px-md-4 px-3"
-              onClick={() => resetForm()}
-            >
-              Reset
-            </button>
-            <button
-              className="rounded-pill px-md-4 px-3"
-              onClick={handleSubmit}
-            >
-              Save
-            </button>
-          </div>
         </FormikProvider>
+        <div className="d-flex justify-content-center justify-content-md-end gap-2 mt-4 px-3">
+          <button
+            className=" rounded-pill px-md-4 px-3"
+            onClick={() => resetForm()}
+          >
+            Reset
+          </button>
+          <button className="rounded-pill px-md-4 px-3" onClick={handleSubmit}>
+            Save
+          </button>
+        </div>
       </div>
     </Container>
   );
