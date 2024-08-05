@@ -15,7 +15,7 @@ const ErrorComponent = ({ errorText }) => {
   );
 };
 
-const ClientDetail = () => {
+const ClientDetail = ({ isSubmitted }) => {
   const { values, errors, touched, handleChange } = useFormikContext();
   // console.log("values", errors);
   // console.log("values===", touched);
@@ -34,6 +34,7 @@ const ClientDetail = () => {
               value={values.clientName}
               onChange={handleChange}
               placeholder="Enter a client name"
+              disabled={isSubmitted}
             >
               {CLIENT_NAMES.map((val) => (
                 <>
@@ -55,6 +56,7 @@ const ClientDetail = () => {
                 name="poType"
                 value={values.poType}
                 onChange={handleChange}
+                disabled={isSubmitted}
               >
                 <option>Select PO Type</option>
                 {PO_TYPES.map((val) => (
@@ -79,6 +81,7 @@ const ClientDetail = () => {
                 name="poNumber"
                 value={values.poNumber}
                 onChange={handleChange}
+                disabled={isSubmitted}
               />
             </Form.Group>
             {errors.poNumber && touched.poNumber && (
@@ -96,6 +99,7 @@ const ClientDetail = () => {
                 name="receivedOn"
                 value={values.receivedOn}
                 onChange={handleChange}
+                disabled={isSubmitted}
               />
             </Form.Group>
             {errors.receivedOn && touched.receivedOn && (
@@ -116,6 +120,7 @@ const ClientDetail = () => {
                 name="receivedFrom.name"
                 value={values.receivedFrom.name}
                 onChange={handleChange}
+                disabled={isSubmitted}
               />
             </Form.Group>
             {errors.receivedFrom?.name && touched.receivedFrom?.name && (
@@ -131,6 +136,7 @@ const ClientDetail = () => {
                 name="receivedFrom.email"
                 value={values.receivedFrom.email}
                 onChange={handleChange}
+                disabled={isSubmitted}
               />
             </Form.Group>
             {errors.receivedFrom?.email && touched.receivedFrom?.email && (
@@ -148,6 +154,7 @@ const ClientDetail = () => {
                 name="poStartDate"
                 value={values.poStartDate}
                 onChange={handleChange}
+                disabled={isSubmitted}
               />
             </Form.Group>
             {errors.poStartDate && touched.poStartDate && (
@@ -165,6 +172,7 @@ const ClientDetail = () => {
                 name="poEndDate"
                 value={values.poEndDate}
                 onChange={handleChange}
+                disabled={isSubmitted}
               />
             </Form.Group>
             {errors.poEndDate && touched.poEndDate && (
@@ -184,6 +192,7 @@ const ClientDetail = () => {
                 value={values.budget}
                 onChange={handleChange}
                 inputMode="numeric"
+                disabled={isSubmitted}
               />
               <Form.Control.Feedback type="invalid">
                 {/* {errorMessage} */}
@@ -203,6 +212,7 @@ const ClientDetail = () => {
                 name="currency"
                 value={values.currency}
                 onChange={handleChange}
+                disabled={isSubmitted}
               >
                 {CURRENCIES.map((currency) => (
                   <option key={currency.value} value={currency.value}>

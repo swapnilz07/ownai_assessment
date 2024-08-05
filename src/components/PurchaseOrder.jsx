@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import ClientDetail from "./ClientDetail";
 import TalentDetail from "./TalentDetail";
@@ -7,6 +7,8 @@ import { useFormik, FormikProvider } from "formik";
 import { v4 as uuidv4 } from "uuid";
 
 const PurchaseOrder = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -25,8 +27,11 @@ const PurchaseOrder = () => {
           return;
         }
       }
+      setIsSubmitted(true);
     },
   });
+
+  console.log("isSubmitted==>>", isSubmitted);
 
   const { values, handleSubmit, resetForm, setFieldValue } = formik;
 
@@ -72,7 +77,7 @@ const PurchaseOrder = () => {
         }}
       >
         <FormikProvider value={formik}>
-          <ClientDetail />
+          <ClientDetail isSubmitted={isSubmitted} />
           <div
             className="d-flex justify-content-between align-items-cente mb-2 px-3"
             style={{ backgroundColor: "#e9ecef", padding: "0.5rem 1rem" }}
@@ -100,6 +105,7 @@ const PurchaseOrder = () => {
                 index={index}
                 uniueId={talentDetail?.id}
                 talentDetail={talentDetail}
+                isSubmitted={isSubmitted}
               />
             ))}
         </FormikProvider>

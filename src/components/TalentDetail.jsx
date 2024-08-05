@@ -11,7 +11,7 @@ import {
 
 import { v4 as uuidv4 } from "uuid";
 
-const TalentDetail = ({ talentDetail, index, uniueId }) => {
+const TalentDetail = ({ talentDetail, index, uniueId, isSubmitted }) => {
   const { values, errors, touched, handleChange, handleBlur, setFieldValue } =
     useFormikContext();
 
@@ -212,7 +212,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                           e.target.value
                         )
                       }
-                      disabled={!talent.checked}
+                      disabled={!talent.checked || isSubmitted}
                     />
                   </Form.Group>
                 </Col>
@@ -228,7 +228,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                       onChange={(e) =>
                         handleAddTalent(talent.id, "billRate", e.target.value)
                       }
-                      disabled={!talent.checked}
+                      disabled={!talent.checked || isSubmitted}
                     />
                   </Form.Group>
                 </Col>
@@ -243,7 +243,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                       onChange={(e) =>
                         handleAddTalent(talent.id, "currency", e.target.value)
                       }
-                      disabled={!talent.checked}
+                      disabled={!talent.checked || isSubmitted}
                     >
                       {CURRENCIES.map((currency) => (
                         <option key={currency.value} value={currency.value}>
@@ -269,7 +269,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                           e.target.value
                         )
                       }
-                      disabled={!talent.checked}
+                      disabled={!talent.checked || isSubmitted}
                     />
                   </Form.Group>
                 </Col>
@@ -288,7 +288,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                           e.target.value
                         )
                       }
-                      disabled={!talent.checked}
+                      disabled={!talent.checked || isSubmitted}
                     >
                       {CURRENCIES.map((currency) => (
                         <option key={currency.value} value={currency.value}>
@@ -310,7 +310,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                       onChange={(e) =>
                         handleAddTalent(talent.id, "overTimeBR", e.target.value)
                       }
-                      disabled={!talent.checked}
+                      disabled={!talent.checked || isSubmitted}
                     />
                   </Form.Group>
                 </Col>
@@ -329,7 +329,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
                           e.target.value
                         )
                       }
-                      disabled={!talent.checked}
+                      disabled={!talent.checked || isSubmitted}
                     >
                       {CURRENCIES.map((currency) => (
                         <option key={currency.value} value={currency.value}>
