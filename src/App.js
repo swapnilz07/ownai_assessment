@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { IoIosArrowBack } from "react-icons/io";
+import PurchaseOrder from "./components/PurchaseOrder";
+import MainForm from "./components/PO";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="px-3 ">
+        <div className="d-flex align-items-center pt-2">
+          <IoIosArrowBack
+            style={{ color: "red", marginLeft: "10px" }}
+            size={28}
+          />
+          <h5 className="" style={{ marginBottom: "0", marginLeft: "10px" }}>
+            Purchase Order | New
+          </h5>
+        </div>
+      </div>
+      <PurchaseOrder />
+      {/* <MainForm /> */}
+    </>
   );
 }
 
