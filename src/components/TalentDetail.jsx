@@ -35,7 +35,7 @@ const TalentDetail = ({ talentDetail, index, uniueId, isSubmitted }) => {
         (talent) => talent.userId === t.id
       );
       if (talentExists) {
-        console.log("talentExists", talentExists);
+        // console.log("talentExists", talentExists);
 
         return {
           ...t,
@@ -106,19 +106,14 @@ const TalentDetail = ({ talentDetail, index, uniueId, isSubmitted }) => {
     };
 
     const index = values.talents.findIndex((detail) => detail.userId === id);
-    // const jobTitleData = JOB_TITLES.find((t) => t.id === value);
     const updatedTalents = [...values.talents, newTalent];
-    // setFieldValue("talentDetails", updatedTalentDetails);
 
     if (index !== -1) {
       setFieldValue(`talents.${index}.checked`, checked);
-      //   setFieldValue(`talents.${index}`, newTalent);
-      //   setFieldValue(`talentDetails.${index}.jobId`, jobTitleData?.reqID);
     } else {
       setFieldValue("talents", updatedTalents);
     }
   };
-
   //   console.log("talentUsrsList", talentUsrsList);
 
   return (
@@ -139,12 +134,13 @@ const TalentDetail = ({ talentDetail, index, uniueId, isSubmitted }) => {
                     Job Title/REQ Name<span className="text-danger">*</span>
                   </Form.Label>
                   <Form.Select
+                    name="Job Title"
                     aria-label="Default select example"
                     value={talentDetail?.jobId}
                     onChange={(e) => {
                       handleJobTitleInput(talentDetail?.id, e.target.value);
                     }}
-                    // onChange={(e) => console.log("e===",e.target.value)}
+                    disabled={isSubmitted}
                   >
                     {jobTitleList.map((job) => (
                       <option key={job.id} value={job.id}>
