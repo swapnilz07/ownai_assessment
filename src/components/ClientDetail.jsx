@@ -24,7 +24,7 @@ const ClientDetail = ({ isSubmitted }) => {
     <>
       <Form className="px-3">
         <Row className="mb-4">
-          <Col>
+          <Col lg={3} md={6} sm={12}>
             <Form.Label style={{ fontWeight: "bold" }}>
               Client Name<span className="text-danger">*</span>
             </Form.Label>
@@ -46,7 +46,7 @@ const ClientDetail = ({ isSubmitted }) => {
               <ErrorComponent errorText={errors.clientName} />
             )}
           </Col>
-          <Col>
+          <Col lg={3} md={6} sm={12}>
             <Form.Group controlId="formOrderType">
               <Form.Label style={{ fontWeight: "bold" }}>
                 Purchase Order Type<span className="text-danger">*</span>
@@ -68,7 +68,7 @@ const ClientDetail = ({ isSubmitted }) => {
               <ErrorComponent errorText={errors.poType} />
             )}
           </Col>
-          <Col>
+          <Col lg={3} md={6} sm={12}>
             <Form.Group controlId="formOrderNumber">
               <Form.Label style={{ fontWeight: "bold" }}>
                 Purchase Order No.<span className="text-danger">*</span>
@@ -88,7 +88,7 @@ const ClientDetail = ({ isSubmitted }) => {
               <ErrorComponent errorText={errors.poNumber} />
             )}
           </Col>
-          <Col>
+          <Col lg={3} md={6} sm={12}>
             <Form.Group controlId="formReceivedOn">
               <Form.Label style={{ fontWeight: "bold" }}>
                 Received On<span className="text-danger">*</span>
@@ -109,7 +109,7 @@ const ClientDetail = ({ isSubmitted }) => {
         </Row>
 
         <Row className="mb-4">
-          <Col>
+          <Col lg={2} md={4} sm={12}>
             <Form.Group controlId="formReceivedFrom">
               <Form.Label style={{ fontWeight: "bold" }}>
                 Received From<span className="text-danger">*</span>
@@ -127,7 +127,7 @@ const ClientDetail = ({ isSubmitted }) => {
               <ErrorComponent errorText={errors.receivedFrom?.name} />
             )}
           </Col>
-          <Col>
+          <Col lg={2} md={4} sm={12}>
             <Form.Group controlId="formReceivedFromEmail">
               <Form.Label style={{ fontWeight: "bold" }}>&nbsp;</Form.Label>
               <Form.Control
@@ -143,7 +143,7 @@ const ClientDetail = ({ isSubmitted }) => {
               <ErrorComponent errorText={errors.receivedFrom?.email} />
             )}
           </Col>
-          <Col>
+          <Col lg={2} md={4} sm={12}>
             <Form.Group controlId="formPOStartDate">
               <Form.Label style={{ fontWeight: "bold" }}>
                 PO Start Date<span className="text-danger">*</span>
@@ -161,7 +161,7 @@ const ClientDetail = ({ isSubmitted }) => {
               <ErrorComponent errorText={errors.poStartDate} />
             )}
           </Col>
-          <Col>
+          <Col lg={2} md={4} sm={12}>
             <Form.Group controlId="formPOEndDate">
               <Form.Label style={{ fontWeight: "bold" }}>
                 PO End Date<span className="text-danger">*</span>
@@ -179,7 +179,7 @@ const ClientDetail = ({ isSubmitted }) => {
               <ErrorComponent errorText={errors.poEndDate} />
             )}
           </Col>
-          <Col>
+          <Col lg={2} md={4} sm={12}>
             <Form.Group controlId="formBudget">
               <Form.Label style={{ fontWeight: "bold" }}>
                 Budget<span className="text-danger">*</span>
@@ -202,7 +202,7 @@ const ClientDetail = ({ isSubmitted }) => {
               <ErrorComponent errorText={errors.budget} />
             )}
           </Col>
-          <Col>
+          <Col lg={2} md={4} sm={12}>
             <Form.Group controlId="formCurrency">
               <Form.Label style={{ fontWeight: "bold" }}>
                 Currency<span className="text-danger">*</span>
