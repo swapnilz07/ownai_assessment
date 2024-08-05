@@ -1,29 +1,19 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Col, Form, FormCheck, Row } from "react-bootstrap";
 import { GoDash, GoTrash } from "react-icons/go";
-import { useFormik, FieldArray, useFormikContext, Field } from "formik";
+import { useFormikContext } from "formik";
 import {
   CLIENT_NAMES,
-  PO_TYPES,
   CURRENCIES,
   JOB_TITLES,
-  TALENTS,
   TALENTS_USERS,
 } from "../config/constants/constant";
 
 import { v4 as uuidv4 } from "uuid";
 
 const TalentDetail = ({ talentDetail, index, uniueId }) => {
-  const [selectedReqId, SetSelectedReqId] = useState();
-  const {
-    values,
-    errors,
-    touched,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-    setFieldValue,
-  } = useFormikContext();
+  const { values, errors, touched, handleChange, handleBlur, setFieldValue } =
+    useFormikContext();
 
   const jobTitleList = useMemo(() => {
     if (!values?.clientName) return [];
@@ -129,7 +119,7 @@ const TalentDetail = ({ talentDetail, index, uniueId }) => {
     }
   };
 
-//   console.log("talentUsrsList", talentUsrsList);
+  //   console.log("talentUsrsList", talentUsrsList);
 
   return (
     <div className={` ${index !== 0 ? "mt-3" : ""}`}>

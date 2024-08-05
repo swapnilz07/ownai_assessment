@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import React from "react";
+import { Container } from "react-bootstrap";
 import ClientDetail from "./ClientDetail";
 import TalentDetail from "./TalentDetail";
 import { initialValues, validationSchema } from "../config/formConfig";
-import { useFormik, FieldArray, FormikProvider } from "formik";
+import { useFormik, FormikProvider } from "formik";
 import { v4 as uuidv4 } from "uuid";
 
 const PurchaseOrder = () => {
@@ -11,52 +11,34 @@ const PurchaseOrder = () => {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      console.log("vallll===>>", values);
-
-      if (values.poType === "Group PO") {
-        const selectedTalents = values.talents.filter(
-          (talent) => talent.checked
-        );
-        if (selectedTalents.length < 2) {
-          alert("Please select at least two talents for Group PO.");
-          return; // Prevent form submission if validation fails
-        }
-      }
-
       const filteredValues = {
         ...values,
-        talentDetails: values.talentDetails.map((detail) => ({
-          ...detail,
-          talents: detail.talents.filter((talent) => talent.checked),
-        })),
-        // only check talents
         talents: values.talents.filter((talent) => talent.checked),
       };
 
-      console.log("filteredValues==>>", filteredValues);
+      console.log("Filtered Values:", filteredValues);
+
+      if (filteredValues.poType === "Group PO") {
+        const selectedTalents = filteredValues.talents;
+        if (selectedTalents.length < 2) {
+          alert("Please select at least two talents for Group PO.");
+          return;
+        }
+      }
     },
   });
 
-  const {
-    values,
-    errors,
-    touched,
-    handleChange,
-    handleBlur,
-    handleSubmit,
-    setFieldValue,
-    resetForm,
-  } = formik;
+  const { values, handleSubmit, resetForm, setFieldValue } = formik;
 
   // Function to push a new talentDetail with a unique ID
   const pushTalentDetail = () => {
     const newTalentDetail = {
-      id: uuidv4(), // Generate a unique ID
+      id: uuidv4(), //to Generate a unique ID for talnt details
       jobTitle: "",
       jobID: "",
       talents: [
         {
-          id: uuidv4(), // Generate a unique ID for nested items
+          id: uuidv4(), // Generate a unique ID for talents
           contractDuration: "",
           billRate: "",
           currency: "",
@@ -68,7 +50,7 @@ const PurchaseOrder = () => {
       ],
     };
 
-    // Use setFieldValue to "push" the new object into the array
+    // Used setFieldValue to push the new talentDetails into the values.talentDetails
     setFieldValue("talentDetails", [...values.talentDetails, newTalentDetail]);
   };
 
@@ -118,10 +100,8 @@ const PurchaseOrder = () => {
                 index={index}
                 uniueId={talentDetail?.id}
                 talentDetail={talentDetail}
-                // arrayHelpers={arrayHelpers}
               />
             ))}
-          {/* <TalentDetail /> */}
           <div className="d-flex justify-content-center justify-content-md-end gap-2 mt-4 px-3">
             <button
               className=" rounded-pill px-md-4 px-3"

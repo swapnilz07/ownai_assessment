@@ -44,13 +44,6 @@ export const JOB_TITLES = [
 ];
 
 // Example Talents (this should be dynamically loaded based on the selected job title)
-export const TALENTS = [
-  { id: "1", name: "Talent A", stage: "Stage 1" },
-  { id: "2", name: "Talent B", stage: "Stage 2" },
-  { id: "3", name: "Talent C", stage: "Stage 1" },
-];
-
-// Example Talents (this should be dynamically loaded based on the selected job title)
 export const TALENTS_USERS = [
   { id: "1", name: "Swapnil", reqID: "REQ001" },
   { id: "2", name: "Vinaya", reqID: "REQ001" },

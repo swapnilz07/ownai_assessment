@@ -4,10 +4,8 @@ import {
   CLIENT_NAMES,
   PO_TYPES,
   CURRENCIES,
-  JOB_TITLES,
-  TALENTS,
 } from "../config/constants/constant";
-import { useFormikContext, Field, ErrorMessage } from "formik";
+import { useFormikContext } from "formik";
 
 const ErrorComponent = ({ errorText }) => {
   return (
@@ -18,9 +16,7 @@ const ErrorComponent = ({ errorText }) => {
 };
 
 const ClientDetail = () => {
-  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
-    useFormikContext();
-
+  const { values, errors, touched, handleChange } = useFormikContext();
   // console.log("values", errors);
   // console.log("values===", touched);
 
