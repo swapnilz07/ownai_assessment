@@ -35,6 +35,11 @@ const PurchaseOrder = () => {
 
   const { values, handleSubmit, resetForm, setFieldValue } = formik;
 
+  const handleReset = () => {
+    resetForm();
+    setIsSubmitted(false);
+  };
+
   // Function to push a new talentDetail with a unique ID
   const pushTalentDetail = () => {
     const newTalentDetail = {
@@ -60,72 +65,74 @@ const PurchaseOrder = () => {
   };
 
   return (
-    <Container
-      fluid
-      className="mt-3 px-5"
-      style={{ backgroundColor: "whitesmoke", border: "0px solid black" }}
-    >
-      <div
-        className=""
-        style={{
-          border: "0px solid black",
-          width: "100%",
-          backgroundColor: "white",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4)",
-          height: "630px",
-          overflowY: "auto",
-        }}
+    <>
+      <Container
+        fluid
+        className="mt-3 px-5"
+        style={{ backgroundColor: "whitesmoke", border: "0px solid black" }}
       >
-        <FormikProvider value={formik}>
-          <ClientDetail isSubmitted={isSubmitted} />
-          <div
-            className="d-flex justify-content-between align-items-cente mb-2 px-3"
-            style={{ backgroundColor: "#e9ecef", padding: "0.5rem 1rem" }}
-          >
-            <h4 className="mb-0">Talent Detail</h4>
+        <div
+          className=""
+          style={{
+            border: "0px solid black",
+            width: "100%",
+            backgroundColor: "white",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4)",
+            height: "630px",
+            overflowY: "auto",
+          }}
+        >
+          <FormikProvider value={formik}>
+            <ClientDetail isSubmitted={isSubmitted} />
+            <div
+              className="d-flex justify-content-between align-items-cente mb-2 px-3"
+              style={{ backgroundColor: "#e9ecef", padding: "0.5rem 1rem" }}
+            >
+              <h4 className="mb-0">Talent Detail</h4>
 
-            {values?.poType === "Group PO" && (
-              <button
-                className="px-2"
-                style={{
-                  borderRadius: "50px",
-                  backgroundColor: "white",
-                  fontWeight: "bold",
-                }}
-                onClick={pushTalentDetail}
-              >
-                + Add another
-              </button>
-            )}
-          </div>
-          {values.clientName &&
-            values.talentDetails.map((talentDetail, index) => (
-              <TalentDetail
-                key={index}
-                index={index}
-                uniueId={talentDetail?.id}
-                talentDetail={talentDetail}
-                isSubmitted={isSubmitted}
-              />
-            ))}
-        </FormikProvider>
-      </div>
-      <div className="d-flex justify-content-center justify-content-md-end gap-2 mt-2 px-3">
+              {values?.poType === "Group PO" && (
+                <button
+                  className="px-2"
+                  style={{
+                    borderRadius: "50px",
+                    backgroundColor: "white",
+                    fontWeight: "bold",
+                  }}
+                  onClick={pushTalentDetail}
+                >
+                  + Add another
+                </button>
+              )}
+            </div>
+            {values.clientName &&
+              values.talentDetails.map((talentDetail, index) => (
+                <TalentDetail
+                  key={index}
+                  index={index}
+                  uniueId={talentDetail?.id}
+                  talentDetail={talentDetail}
+                  isSubmitted={isSubmitted}
+                />
+              ))}
+          </FormikProvider>
+        </div>
+      </Container>
+      <div className="d-flex justify-content-center justify-content-md-end gap-2 mt-3 px-5">
         <button
-          className=" rounded-pill px-md-4 px-3"
-          onClick={() => resetForm()}
+          className=" rounded-pill px-md-4 px-3 bg-white"
+          onClick={handleReset}
         >
           Reset
         </button>
         <button
           type="submit"
-          className="rounded-pill px-md-4 px-3"
+          className="rounded-pill px-md-4 px-3 border-0 bg"
           onClick={handleSubmit}
         >
           Save
         </button>
       </div>
-    </Container>
+    </>
   );
 };
 

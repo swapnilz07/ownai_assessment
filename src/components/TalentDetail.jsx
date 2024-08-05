@@ -187,6 +187,7 @@ const TalentDetail = ({ talentDetail, index, uniueId, isSubmitted }) => {
                     onChange={(e) =>
                       handleTalentCheck(talent.id, e.target.checked)
                     }
+                    disabled={isSubmitted}
                   />
                 </Col>
               </Row>
