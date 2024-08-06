@@ -1,5 +1,6 @@
 import { IoIosArrowBack } from "react-icons/io";
 import PurchaseOrder from "./components/PurchaseOrder";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         </div>
       </div>
       <PurchaseOrder />
+      <Toaster position="top-right" />
     </>
   );
 }
