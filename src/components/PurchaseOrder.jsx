@@ -7,6 +7,7 @@ import { useFormik, FormikProvider } from "formik";
 import { v4 as uuidv4 } from "uuid";
 import Button from "@mui/material/Button";
 import toast from "react-hot-toast";
+import AddIcon from "@mui/icons-material/Add";
 
 const PurchaseOrder = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -20,13 +21,12 @@ const PurchaseOrder = () => {
         talents: values.talents.filter((talent) => talent.checked),
       };
 
-      console.log("Filtered Values:", filteredValues);
+      console.log("Form Data :::", filteredValues);
 
       // condition Check for "Group PO" type
       if (filteredValues.poType === "Group PO") {
         const selectedTalents = filteredValues.talents;
         if (selectedTalents.length < 2) {
-          // alert("Please select at least two talents for Group PO.");
           toast.error("Please select at least two talents for Group PO.");
           return;
         }
@@ -36,7 +36,6 @@ const PurchaseOrder = () => {
       if (filteredValues.poType === "Individual PO") {
         const selectedTalents = filteredValues.talents;
         if (selectedTalents.length > 1) {
-          // alert("You can select only one talent for Individual PO.");
           toast.error("You can select only one talent for Individual PO.");
 
           return;
@@ -47,7 +46,7 @@ const PurchaseOrder = () => {
     },
   });
 
-  console.log("isSubmitted==>>", isSubmitted);
+  // console.log("isSubmitted==>>", isSubmitted);
 
   const { values, handleSubmit, resetForm, setFieldValue } = formik;
 
@@ -99,18 +98,14 @@ const PurchaseOrder = () => {
     <>
       <Container
         fluid
-        className="mt-3 px-5"
+        className="h-100 mt-3 px-md-3 px-lg-5 px-2"
         style={{ backgroundColor: "whitesmoke", border: "0px solid black" }}
       >
         <div
-          className=""
+          className="h-100 w-100 bg-bg-white overflow-y-hidden"
           style={{
             border: "0px solid black",
-            width: "100%",
-            backgroundColor: "white",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4)",
-            height: "630px",
-            overflowY: "auto",
           }}
         >
           <FormikProvider value={formik}>
@@ -122,17 +117,16 @@ const PurchaseOrder = () => {
               <h4 className="mb-0">Talent Detail</h4>
 
               {values?.poType === "Group PO" && (
-                <button
-                  className="px-2"
-                  style={{
-                    borderRadius: "50px",
-                    backgroundColor: "white",
-                    fontWeight: "bold",
-                  }}
+                <Button
+                  variant="outlined"
+                  color="inherit"
+                  // className="rounded-pill"
+                  size="small"
+                  startIcon={<AddIcon color="action" />}
                   onClick={pushTalentDetail}
                 >
-                  + Add another
-                </button>
+                  <span className="fw-bold text-black">Add Another</span>
+                </Button>
               )}
             </div>
             {values.clientName &&
@@ -149,7 +143,7 @@ const PurchaseOrder = () => {
           </FormikProvider>
         </div>
       </Container>
-      <div className="d-flex justify-content-center justify-content-md-end gap-2 mt-3 px-5">
+      <div className="d-flex justify-content-center justify-content-md-end gap-2 mt-3 px-5 mb-3">
         <Button
           variant="outlined"
           size="small"

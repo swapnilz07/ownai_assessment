@@ -175,21 +175,21 @@ const TalentDetail = ({
 
         <div className="d-flex align-items-center">
           <Tooltip title="Delete" placement="top">
-            <IconButton>
-              <DeleteIcon onClick={() => removeTalentDetail(uniueId)} />
+            <IconButton onClick={() => removeTalentDetail(uniueId)}>
+              <DeleteIcon color="error" />
             </IconButton>
           </Tooltip>
 
           {isOpen ? (
             <Tooltip title="Close" placement="top">
-              <IconButton>
-                <RemoveIcon size={15} onClick={() => setIsOpen(false)} />
+              <IconButton onClick={() => setIsOpen(false)}>
+                <RemoveIcon size={15} />
               </IconButton>
             </Tooltip>
           ) : (
             <Tooltip title="Open" placement="top">
-              <IconButton>
-                <AddIcon size={15} onClick={() => setIsOpen(true)} />
+              <IconButton onClick={() => setIsOpen(true)}>
+                <AddIcon size={15} />
               </IconButton>
             </Tooltip>
           )}
@@ -218,7 +218,7 @@ const TalentDetail = ({
                 </Row>
 
                 <Row>
-                  <Col lg={3} md={3} sm={12}>
+                  <Col lg={3} md={4} sm={12}>
                     <Form.Group controlId={`formContractDuration-${talent.id}`}>
                       <Form.Label style={{ fontWeight: "bold" }}>
                         Contract Duration
@@ -238,7 +238,7 @@ const TalentDetail = ({
                       />
                     </Form.Group>
                   </Col>
-                  <Col lg={2} md={3} sm={12}>
+                  <Col lg={2} md={4} sm={12}>
                     <Form.Group controlId={`formBillRate-${talent.id}`}>
                       <Form.Label style={{ fontWeight: "bold" }}>
                         Bill Rate
@@ -254,7 +254,7 @@ const TalentDetail = ({
                       />
                     </Form.Group>
                   </Col>
-                  <Col lg={1} md={3} sm={12}>
+                  <Col lg={1} md={4} sm={12}>
                     <Form.Group controlId={`formCurrency-${talent.id}`}>
                       <Form.Label style={{ fontWeight: "bold" }}>
                         Currency
@@ -275,7 +275,7 @@ const TalentDetail = ({
                       </Form.Select>
                     </Form.Group>
                   </Col>
-                  <Col lg={2} md={3} sm={12}>
+                  <Col lg={2} md={4} sm={12}>
                     <Form.Group controlId={`formStandardTimeBR-${talent.id}`}>
                       <Form.Label style={{ fontWeight: "bold" }}>
                         Standard Time BR
@@ -295,7 +295,7 @@ const TalentDetail = ({
                       />
                     </Form.Group>
                   </Col>
-                  <Col lg={1} md={3} sm={12}>
+                  <Col lg={1} md={4} sm={12}>
                     <Form.Group controlId={`formCurrency-${talent.id}`}>
                       <Form.Label style={{ fontWeight: "bold" }}>
                         Currency
@@ -320,7 +320,7 @@ const TalentDetail = ({
                       </Form.Select>
                     </Form.Group>
                   </Col>
-                  <Col lg={2} md={3} sm={12}>
+                  <Col lg={2} md={4} sm={12}>
                     <Form.Group controlId={`formOverTimeBR-${talent.id}`}>
                       <Form.Label style={{ fontWeight: "bold" }}>
                         Over Time BR
@@ -340,7 +340,7 @@ const TalentDetail = ({
                       />
                     </Form.Group>
                   </Col>
-                  <Col lg={1} md={3} sm={12}>
+                  <Col lg={1} md={4} sm={12}>
                     <Form.Group controlId={`formCurrency-${talent.id}`}>
                       <Form.Label style={{ fontWeight: "bold" }}>
                         Currency

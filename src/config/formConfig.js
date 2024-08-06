@@ -20,8 +20,7 @@ export const initialValues = {
       jobId: "",
     },
   ],
-  talents: [
-  ],
+  talents: [],
 };
 
 export const validationSchema = Yup.object().shape({
@@ -40,5 +39,5 @@ export const validationSchema = Yup.object().shape({
   budget: Yup.number()
     .required("Budget is required")
     .max(99999, "Budget must be less than 100000"),
-  currency: Yup.string().required("Currency is required"),
+  currency: Yup.string().required("Currency is required"),  
 });
