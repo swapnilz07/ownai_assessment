@@ -21,8 +21,6 @@ const PurchaseOrder = () => {
         talents: values.talents.filter((talent) => talent.checked),
       };
 
-      console.log("Form Data :::", filteredValues);
-
       // condition Check for "Group PO" type
       if (filteredValues.poType === "Group PO") {
         const selectedTalents = filteredValues.talents;
@@ -42,6 +40,7 @@ const PurchaseOrder = () => {
         }
       }
 
+      console.log("Form Data :::", filteredValues);
       setIsSubmitted(true);
       toast.success("Form submitted successfully!");
     },
