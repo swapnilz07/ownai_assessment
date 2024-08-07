@@ -116,7 +116,7 @@ const ClientDetail = ({ isSubmitted }) => {
               </Form.Label>
               <Form.Control
                 type="text"
-                placeholder="received from Name"
+                placeholder="Received from Name"
                 name="receivedFrom.name"
                 value={values.receivedFrom.name}
                 onChange={handleChange}

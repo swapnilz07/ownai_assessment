@@ -43,6 +43,7 @@ const PurchaseOrder = () => {
       }
 
       setIsSubmitted(true);
+      toast.success("Form submitted successfully!");
     },
   });
 

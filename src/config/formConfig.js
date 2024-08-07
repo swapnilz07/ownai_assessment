@@ -29,7 +29,9 @@ export const validationSchema = Yup.object().shape({
   poNumber: Yup.string().required("Purchase Order No. is required"),
   receivedOn: Yup.date().required("Received On date is required"),
   receivedFrom: Yup.object().shape({
-    name: Yup.string().required("Name is required"),
+    name: Yup.string()
+      .matches(/^[A-Za-z\s]*$/, "Name can only contain alphabetic characters")
+      .required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
   }),
   poStartDate: Yup.date().required("PO Start Date is required"),
@@ -39,5 +41,5 @@ export const validationSchema = Yup.object().shape({
   budget: Yup.number()
     .required("Budget is required")
     .max(99999, "Budget must be less than 100000"),
-  currency: Yup.string().required("Currency is required"),  
+  currency: Yup.string().required("Currency is required"),
 });
