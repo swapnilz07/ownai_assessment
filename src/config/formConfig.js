@@ -1,8 +1,6 @@
 import * as Yup from "yup";
 import { v4 as uuidv4 } from "uuid";
 
-const newId = uuidv4();
-
 export const initialValues = {
   clientName: "",
   poType: "",

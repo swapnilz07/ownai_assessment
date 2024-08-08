@@ -21,8 +21,9 @@ const TalentDetail = ({
   isSubmitted,
   removeTalentDetail,
 }) => {
-  const { values, errors, touched, handleChange, handleBlur, setFieldValue } =
-    useFormikContext();
+  const { values, setFieldValue } = useFormikContext();
+
+  console.log("values talent cmpnt===", values);
 
   // State to manage accordion open/close
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,7 @@ const TalentDetail = ({
   const jobTitleList = useMemo(() => {
     if (!values?.clientName) return [];
     const clientNameData = CLIENT_NAMES.find(
-      (value) => value.name == values.clientName
+      (value) => value.name === values.clientName
     );
     const jobTitleData = JOB_TITLES.filter(
       (t) => t.clientId === clientNameData?.id || !t.id
@@ -79,18 +80,6 @@ const TalentDetail = ({
 
   // Function to handle adding new talent
   const handleAddTalent = (id, field, value) => {
-    const newTalent = {
-      id: uuidv4(), // Unique ID for each talent
-      userId: "",
-      contractDuration: "",
-      billRate: "",
-      currency: "",
-      standardTimeBR: "",
-      stbrCurrency: "",
-      overTimeBR: "",
-      otbrCurrency: "",
-    };
-
     const index = values.talents.findIndex((detail) => detail.userId === id);
 
     if (index !== -1) {
@@ -132,7 +121,6 @@ const TalentDetail = ({
           backgroundColor: "#e9ecef",
           borderBottom: "1px solid grey",
         }}
-        // onClick={() => setIsOpen(!isOpen)} // Toggle accordion state
       >
         <Form className="w-100">
           <Row className="mb-3">
